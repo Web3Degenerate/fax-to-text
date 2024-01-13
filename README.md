@@ -1,5 +1,13 @@
 ## Fax Parsing Project In Laravel
 
+**Import command Cheat Sheet**
+
+- Install Laravel
+  - `composer create-project laravel/laravel <project-name-here>`
+- Generate Application Key after updating `.env` file:
+  - `php artisan key:generate`
+- ## Generate a Controller:
+
 1. Install laravel to desired directory with:
 
 - - `composer create-project laravel/laravel <project-name>`
@@ -12,6 +20,8 @@
 
 3. Add these new variables to the .env file.
    Update the **DB_DATABASE**, **DB_USERNAME** and **DB_PASSWORD** - `DB_DATABASE=myserver_fax_to_text_database` - `DB_USERNAME=myserver_faxtotextuser_` - `DB_PASSWORD='FaxingIsFun!ButBase64IsBetter!'`
+   -
+   - Hosting provider eventually resolved the installation with domain user account.
 
 ---
 
@@ -58,6 +68,36 @@ root     12340  0.0  0.0 112812   976 pts/0    S+   23:41   0:00 grep --color=au
     rm -rf dent
 ```
 
-4. Rum the command:
-   - `php artisan serve`
-   - This should generate a base64 encoded key in your .env file.
+4. Generate Application Key:
+
+- Run the following command [to generate your application key as shown here (10:55)](https://youtu.be/X4KElZcUi-g?si=NAiRDc1PVLlve3ZU&t=655)
+
+  - `php artisan key:generate`
+  - Then install all the dependencies with:
+
+    - `composer install`
+
+  - **[Optional??]** Update `app/Providers/AppServiceProvider.php` with:
+
+```php
+
+//At top of AppServiceProvider.php add:
+use Illuminate\Support\Facades\Schema;
+
+
+//Add to existing boot() function:
+public function boot(){
+  Schema::defaultStringLength(190);
+}
+
+```
+
+- Run the migrate command:
+
+  - `php artisan migrate`
+
+- You can run a local server with
+- `php artisan serve`
+- This should generate a base64 encoded key in your .env file.
+
+- See other tutorials for [uploading zipped laravel project to cPanel](https://www.youtube.com/watch?v=WN2hHvxMHTI)
