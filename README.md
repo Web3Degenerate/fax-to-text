@@ -3,10 +3,16 @@
 **Import command Cheat Sheet**
 
 - Install Laravel
+
+  - Update Composer with? `composer self-update`
+
   - `composer create-project laravel/laravel <project-name-here>`
+
 - Generate Application Key after updating `.env` file:
   - `php artisan key:generate`
+  -
 - ## Generate a Controller:
+  - `php artisan make:controller <upper-case name here>`
 
 1. Install laravel to desired directory with:
 
@@ -73,6 +79,7 @@ root     12340  0.0  0.0 112812   976 pts/0    S+   23:41   0:00 grep --color=au
 - Run the following command [to generate your application key as shown here (10:55)](https://youtu.be/X4KElZcUi-g?si=NAiRDc1PVLlve3ZU&t=655)
 
   - `php artisan key:generate`
+
   - Then install all the dependencies with:
 
     - `composer install`
